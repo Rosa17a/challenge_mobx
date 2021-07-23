@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "686375747071",
+    "project_id": "challenge-10536",
+    "storage_bucket": "challenge-10536.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686375747071:android:e5e8e6243ec4dc3826bbca",
+        "android_client_info": {
+          "package_name": "com.challenge.rozaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686375747071-kqrfe87k777kipjpo1p8n0c47kg0t1ec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.challenge.rozaapp",
+            "certificate_hash": "6e470dd6cf234efce93cd5d46394ac7207833c1f"
+          }
+        },
+        {
+          "client_id": "686375747071-bccg42mm3rvhrimulbo902q4farmoksq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_leUoBvDG1-nLM_6sbfrhFb3ognSCzro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686375747071-bccg42mm3rvhrimulbo902q4farmoksq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "686375747071-lrtdrtlbiql1tm5pvuffh8uorgqgpbda.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.challenge.rozaapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
