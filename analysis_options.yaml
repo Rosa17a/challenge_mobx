@@ -7,3 +7,5 @@ linter:
     prefer_constructors_over_static_methods: false
     non_constant_identifier_names: false
     sort_pub_dependencies: false
+    constant_identifier_names: false
+    implementation_imports: false
