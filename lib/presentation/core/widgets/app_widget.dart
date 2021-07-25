@@ -3,10 +3,10 @@ import 'package:flutter_gen/gen_l10n/localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
-import '../../application/core/locale_store.dart';
-import '../../injection.dart';
-import '../routes/router.gr.dart';
-import 'themes.dart';
+import '../../../application/core/locale_store.dart';
+import '../../../injection.dart';
+import '../../routes/router.gr.dart';
+import '../themes.dart';
 
 class AppWidget extends StatelessWidget {
   @override
