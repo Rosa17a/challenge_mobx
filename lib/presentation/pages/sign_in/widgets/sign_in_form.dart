@@ -1,12 +1,10 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:challenge/presentation/core/colors.dart';
-import 'package:challenge/presentation/core/typography/typography.dart';
-import 'package:challenge/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../../../application/auth/auth_module.dart';
+import '../../../core/colors.dart';
+import '../../../core/typography/typography.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({
@@ -92,7 +90,6 @@ class SignInForm extends StatelessWidget {
                           GestureDetector(
                               behavior: HitTestBehavior.opaque,
                               onTap: () {
-                                print('ss');
                                 authModule.signInWithEmailAndPasswordPresses();
                               },
                               child: _AuthButton(
@@ -111,7 +108,7 @@ class SignInForm extends StatelessWidget {
                       ),
                     ),
                     AnimatedPositioned(
-                      duration: Duration(milliseconds: 250),
+                      duration: const Duration(milliseconds: 250),
                       left: authModule.buttonIndex == 0
                           ? 0
                           : MediaQuery.of(context).size.width / 2 - 70,
@@ -141,7 +138,20 @@ class SignInForm extends StatelessWidget {
                     backgroundColor: AppColors.blueGrey,
                     minHeight: 5,
                   ),
-                ]
+                ],
+                const SizedBox(height: 30),
+                TextButton(
+                  onPressed: null,
+                  child: Text(
+                    AppLocalizations.of(context)!.forgotPassword,
+                    style: Theme.of(context)
+                        .primaryTextTheme
+                        .bodyText1
+                        ?.copyWith(
+                            color: AppColors.orangeRed,
+                            fontWeight: AppFontWeight.bold),
+                  ),
+                ),
               ],
             ),
           ),
