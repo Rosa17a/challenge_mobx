@@ -64,5 +64,17 @@
         "description": "invalidEmailAndPasswordCombination",
         "type": "text",
         "placeholders": {}
+    },
+    "brandLogo": "Բրենդի \nԼոգո",
+    "@brandLogo": {
+        "description": "brandLogo",
+        "type": "text",
+        "placeholders": {}
+    },
+    "welcome": "Բարի գալուստ",
+    "@welcome": {
+        "description": "welcome",
+        "type": "text",
+        "placeholders": {}
     }
 }

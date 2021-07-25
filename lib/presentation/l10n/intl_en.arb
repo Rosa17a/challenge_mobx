@@ -64,5 +64,17 @@
         "description": "invalidEmailAndPasswordCombination",
         "type": "text",
         "placeholders": {}
+    },
+    "brandLogo": "Brand \nLogo",
+    "@brandLogo": {
+        "description": "brandLogo",
+        "type": "text",
+        "placeholders": {}
+    },
+    "welcome": "Welcome!",
+    "@welcome": {
+        "description": "welcome",
+        "type": "text",
+        "placeholders": {}
     }
 }
