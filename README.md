@@ -20,5 +20,7 @@ For running and debugging
 ### Visuals
 
 > App Video recording:
+<img src="https://firebasestorage.googleapis.com/..." data-canonical-src="https://firebasestorage.googleapis.com/v0/b/challenge-10536.appspot.com/o/challenge_video_recording.gif?alt=media&token=62a0e895-f5ed-4ec1-9a11-1941ca5ccb60 width="200" height="600" />
+
 
 ![](https://firebasestorage.googleapis.com/v0/b/challenge-10536.appspot.com/o/challenge_video_recording.gif?alt=media&token=62a0e895-f5ed-4ec1-9a11-1941ca5ccb60)
