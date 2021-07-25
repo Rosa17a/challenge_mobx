@@ -1,65 +1,65 @@
 {
-    "login": "Login",
+    "login": "Մուտք",
     "@login": {
         "description": "login",
         "type": "text",
         "placeholders": {}
     },
-    "password": "Password",
+    "password": "Գաղտնաբառ",
     "@password": {
         "description": "password",
         "type": "text",
         "placeholders": {}
     },
-    "shortPassword": "Short password",
+    "shortPassword": "Կարճ գաղտնաբառ",
     "@shortPassword": {
         "description": "shortPassword",
         "type": "text",
         "placeholders": {}
     },
-    "forgotPassword": "Forgot password?",
+    "forgotPassword": "Մոռացե՞լ եք գաղտնաբառը",
     "@forgotPassword": {
         "description": "forgotPassword",
         "type": "text",
         "placeholders": {}
     },
-    "signup": "Sign-up",
+    "signup": "Գրանցվել",
     "@signup": {
         "description": "signup",
         "type": "text",
         "placeholders": {}
     },
-    "email": "Email",
+    "email": "Էլ. հասցե",
     "@email": {
         "description": "email",
         "type": "text",
         "placeholders": {}
     },
-    "invalidEmail": "Invalid email",
+    "invalidEmail": "Անվավեր էլ. հասցե",
     "@invalidEmail": {
         "description": "invalidEmail",
         "type": "text",
         "placeholders": {}
     },
-    "canceled": "Canceled",
+    "canceled": "Չեղարկված է",
     "@canceled": {
         "description": "canceled",
         "type": "text",
         "placeholders": {}
     },
-    "serverError": "Server error",
+    "serverError": "Սերվերի սխալ",
     "@serverError": {
         "description": "serverError",
         "type": "text",
         "placeholders": {}
     },
-    "emailAlreadyInUse": "Email already in use",
+    "emailAlreadyInUse": "էլ. հասցեն արդեն օգտագործվում է",
     "@emailAlreadyInUse": {
         "description": "emailAlreadyInUse",
         "type": "text",
         "placeholders": {}
     },
-    "invalidEmailAndPasswordCombination": "Invalid email and password combination",
+    "invalidEmailAndPasswordCombination": "Էլ.հասցեի և գաղտնաբառի անվավեր համադրություն",
     "@invalidEmailAndPasswordCombination": {
         "description": "invalidEmailAndPasswordCombination",
         "type": "text",
