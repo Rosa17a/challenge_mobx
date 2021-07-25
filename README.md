@@ -17,9 +17,7 @@ For running and debugging
     flutter pub run build_runner build --delete-conflicting-outputs
     flutter run
 
-###Images
-
-
+### Visuals
 
 > App Video recording:
 
