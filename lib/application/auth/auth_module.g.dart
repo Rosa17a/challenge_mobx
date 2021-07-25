@@ -167,14 +167,6 @@ mixin _$AuthModule on AuthModuleBase, Store {
         .run(() => super.signInWithEmailAndPasswordPresses());
   }
 
-  final _$cacheUserDataAsyncAction =
-      AsyncAction('AuthModuleBase.cacheUserData');
-
-  @override
-  Future<void> cacheUserData() {
-    return _$cacheUserDataAsyncAction.run(() => super.cacheUserData());
-  }
-
   final _$signinAsyncAction = AsyncAction('AuthModuleBase.signin');
 
   @override

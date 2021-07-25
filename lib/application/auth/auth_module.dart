@@ -4,7 +4,7 @@ import 'package:mobx/mobx.dart';
 
 import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
-import '../../domain/auth/i_auth_local_repository.dart';
+
 import '../../domain/auth/value_objects.dart';
 
 part 'auth_module.g.dart';
@@ -14,9 +14,9 @@ class AuthModule = AuthModuleBase with _$AuthModule;
 
 abstract class AuthModuleBase with Store {
   final IAuthFacade _authFacade;
-  final ILocalAuthRepository _localAuthRepository;
 
-  AuthModuleBase(this._authFacade, this._localAuthRepository);
+  AuthModuleBase(this._authFacade);
+  
   @observable
   bool autovalidate = false;
 
@@ -85,11 +85,6 @@ abstract class AuthModuleBase with Store {
   }
 
   @action
-  Future<void> cacheUserData() async {
-    await _localAuthRepository.cacheUserData(emailAddress!, password!);
-  }
-
-  @action
   Future<void> signin(String emailStr, String passwordStr) async {
     await _authFacade.signInWithEmailAndPassword(
       emailAddress: EmailAddress(emailStr),
@@ -118,7 +113,7 @@ abstract class AuthModuleBase with Store {
   @action
   Future<void> signOut() async {
     await _authFacade.signOut();
-    await _localAuthRepository.deleteUserData();
+
     authState = AuthState.Unauthenticated;
   }
 
