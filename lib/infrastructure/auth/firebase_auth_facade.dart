@@ -11,12 +11,8 @@ import '../../infrastructure/auth/firebase_user_mapper.dart';
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
-  // final AuthLocalRepository _localRepository;
 
-  FirebaseAuthFacade(
-    this._firebaseAuth,
-    // this._localRepository,
-  );
+  FirebaseAuthFacade(this._firebaseAuth);
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
@@ -70,15 +66,4 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<void> signOut() => _firebaseAuth.signOut();
-
-  // @override
-  // Future<void> autoSignIn() async {
-  //   final credentials = await _localRepository.getUserData();
-  //   credentials.fold(
-  //     (f) => unit,
-  //     (userCredential) => signInWithEmailAndPassword(
-  //         emailAddress: userCredential.emailAddress!,
-  //         password: userCredential.password!),
-  //   );
-  // }
 }
