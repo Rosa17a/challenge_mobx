@@ -140,7 +140,7 @@ class DefaultTheme {
   }
 
   static IconThemeData get _iconTeheme =>
-      IconThemeData(color: AppColors.orangeRed);
+      const IconThemeData(color: AppColors.orangeRed);
 
   static TooltipThemeData get _tooltipTheme {
     return const TooltipThemeData(
