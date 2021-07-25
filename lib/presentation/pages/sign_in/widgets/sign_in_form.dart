@@ -1,3 +1,4 @@
+import 'package:challenge/presentation/pages/sign_in/sign_in_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -16,6 +17,7 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final styles = SignInStyles();
     return Observer(
       name: 'Sign-in-form',
       builder: (context) {
@@ -25,7 +27,7 @@ class SignInForm extends StatelessWidget {
               ? AutovalidateMode.onUserInteraction
               : AutovalidateMode.disabled,
           child: Padding(
-            padding: const EdgeInsets.only(left: 35, right: 35, top: 40),
+            padding: styles.formPadding,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -53,7 +55,7 @@ class SignInForm extends StatelessWidget {
                       (r) => null,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  styles.constHeight,
                   TextFormField(
                     style: Theme.of(context)
                         .primaryTextTheme
@@ -79,14 +81,12 @@ class SignInForm extends StatelessWidget {
                       (r) => null,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  styles.constHeight,
                   Stack(
                     children: [
                       Container(
-                        height: 60,
-                        decoration: BoxDecoration(
-                            color: AppColors.blueGrey,
-                            borderRadius: BorderRadius.circular(100)),
+                        height: styles.buttonHeight,
+                        decoration: styles.buttonDecoration,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
@@ -98,7 +98,9 @@ class SignInForm extends StatelessWidget {
                                         .signInWithEmailAndPasswordPresses();
                                   },
                                   child: _AuthButton(
-                                    opacity: !loginMode ? 0.5 : 1,
+                                    opacity: !loginMode
+                                        ? styles.halfOpacity
+                                        : styles.fullOpacity,
                                     title: AppLocalizations.of(context)!.login,
                                   )),
                             ),
@@ -110,7 +112,9 @@ class SignInForm extends StatelessWidget {
                                       .registerWithEmailAndPasswordPresses();
                                 },
                                 child: _AuthButton(
-                                  opacity: loginMode ? 0.5 : 1,
+                                  opacity: loginMode
+                                      ? styles.halfOpacity
+                                      : styles.fullOpacity,
                                   title: AppLocalizations.of(context)!.signup,
                                 ),
                               ),
@@ -119,21 +123,20 @@ class SignInForm extends StatelessWidget {
                         ),
                       ),
                       AnimatedPositioned(
-                        duration: const Duration(milliseconds: 250),
+                        duration: styles.animationDuration,
                         left: loginMode
                             ? 0
-                            : MediaQuery.of(context).size.width / 2 - 70,
+                            : MediaQuery.of(context).size.width / 2 -
+                                styles.horizontalPadding,
                         child: GestureDetector(
                           behavior: HitTestBehavior.opaque,
                           onTap: loginMode
                               ? authModule.signInWithEmailAndPasswordPresses
                               : authModule.registerWithEmailAndPasswordPresses,
                           child: Container(
-                              height: 60,
+                              height: styles.buttonHeight,
                               width: MediaQuery.of(context).size.width / 2,
-                              decoration: BoxDecoration(
-                                  color: AppColors.orangeRed,
-                                  borderRadius: BorderRadius.circular(100)),
+                              decoration: styles.animatiedBoxDecoration,
                               child: _AuthButton(
                                 title: loginMode
                                     ? AppLocalizations.of(context)!.login
@@ -144,14 +147,14 @@ class SignInForm extends StatelessWidget {
                     ],
                   ),
                   if (authModule.isSubmitting) ...[
-                    const SizedBox(height: 8),
+                    SizedBox(height: styles.loadingWidgetsdistance),
                     const LinearProgressIndicator(
                       color: AppColors.orangeRed,
                       backgroundColor: AppColors.blueGrey,
-                      minHeight: 5,
+                      minHeight: SignInStyles.loadingWidgetHeight,
                     ),
                   ],
-                  const SizedBox(height: 30),
+                  styles.constHeight,
                   TextButton(
                     onPressed: null,
                     child: Text(
@@ -160,7 +163,7 @@ class SignInForm extends StatelessWidget {
                           .primaryTextTheme
                           .bodyText1
                           ?.copyWith(
-                              color: AppColors.orangeRed,
+                              color: AppColors.orangeRedMuted,
                               fontWeight: AppFontWeight.bold),
                     ),
                   ),
