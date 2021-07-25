@@ -16,6 +16,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final authModule = getIt<AuthModule>();
     return ObserverListener(
+      name: SplashPageRoute.name,
       listener: (_) async {
         await authModule.authCheckRequest();
         switch (authModule.authState) {

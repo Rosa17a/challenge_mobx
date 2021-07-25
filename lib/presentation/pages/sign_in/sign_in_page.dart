@@ -26,6 +26,7 @@ class SigninPage extends StatelessWidget {
         child: _SignInAppBar(),
       ),
       body: ObserverListener(
+        name: SigninPageRoute.name,
         listener: (_) {
           authModule.authFailureOrSuccessOption?.fold(
             () {},
@@ -50,7 +51,16 @@ class SigninPage extends StatelessWidget {
             ),
           );
         },
-        child: SignInForm(authModule: authModule),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Flexible(
+              flex: 2,
+              child: SignInForm(authModule: authModule),
+            ),
+            const Spacer()
+          ],
+        ),
       ),
     );
   }
@@ -63,7 +73,7 @@ class _SignInAppBar extends StatelessWidget {
     return ClipPath(
       clipper: CurvedLineClipper(),
       child: Container(
-        height: 150,
+        height: 200,
         width: MediaQuery.of(context).size.width,
         color: AppColors.purple,
         padding:
@@ -72,10 +82,10 @@ class _SignInAppBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              AppLocalizations.of(context)!.brandLogo,
+              AppLocalizations.of(context)!.brandLogo.toUpperCase(),
               style: Theme.of(context).primaryTextTheme.headline5?.copyWith(
-                    color: AppColors.white,
-                    fontWeight: AppFontWeight.bold,
+                    color: AppColors.white.withOpacity(0.7),
+                    fontWeight: AppFontWeight.semiBold,
                   ),
             ),
             TextButton(

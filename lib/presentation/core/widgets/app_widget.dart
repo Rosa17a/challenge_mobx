@@ -18,6 +18,7 @@ class AppWidget extends StatelessWidget {
       ],
       child: Consumer<LocaleStore>(
         builder: (_, LocaleStore value, __) => Observer(
+          name: 'Locale-store',
           builder: (_) => MaterialApp.router(
             title: 'Challenge',
             debugShowCheckedModeBanner: false,

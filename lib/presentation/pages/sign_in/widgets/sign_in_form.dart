@@ -17,155 +17,170 @@ class SignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Observer(
-      builder: (context) => Form(
-        autovalidateMode: authModule.autovalidate
-            ? AutovalidateMode.onUserInteraction
-            : AutovalidateMode.disabled,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 35, right: 35, top: 40),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextFormField(
-                  style: Theme.of(context)
-                      .primaryTextTheme
-                      .bodyText2
-                      ?.copyWith(color: AppColors.akaroa),
-                  decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.email,
-                          color: authModule.emailFieldHasFocus
-                              ? AppColors.orangeRed
-                              : AppColors.orangeRedMuted),
-                      hintText: AppLocalizations.of(context)!.email),
-                  autocorrect: false,
-                  onTap: authModule.emailFieldPresses,
-                  onChanged: (value) =>
-                      authModule.emailChanged(emailStr: value),
-                  validator: (_) => authModule.emailAddress?.value.fold(
-                    (f) => f.maybeMap(
-                        invalidEmail: (_) =>
-                            AppLocalizations.of(context)!.invalidEmail,
-                        orElse: () {}),
-                    (r) => null,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                TextFormField(
-                  style: Theme.of(context)
-                      .primaryTextTheme
-                      .bodyText2
-                      ?.copyWith(color: AppColors.akaroa),
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock,
-                        color: authModule.passwordFieldHasFocus
-                            ? AppColors.orangeRed
-                            : AppColors.orangeRedMuted),
-                    hintText: AppLocalizations.of(context)!.password,
-                  ),
-                  autocorrect: false,
-                  obscureText: true,
-                  onTap: authModule.passwordFieldPresses,
-                  onChanged: (value) =>
-                      authModule.passwordChanged(passwordStr: value),
-                  validator: (_) => authModule.password?.value.fold(
-                    (f) => f.maybeMap(
-                        shortPassword: (_) =>
-                            AppLocalizations.of(context)!.shortPassword,
-                        orElse: () {}),
-                    (r) => null,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Stack(
-                  children: [
-                    Container(
-                      height: 60,
-                      decoration: BoxDecoration(
-                          color: AppColors.blueGrey,
-                          borderRadius: BorderRadius.circular(100)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          GestureDetector(
-                              behavior: HitTestBehavior.opaque,
-                              onTap: () {
-                                authModule.signInWithEmailAndPasswordPresses();
-                              },
-                              child: _AuthButton(
-                                title: AppLocalizations.of(context)!.login,
-                              )),
-                          GestureDetector(
-                            behavior: HitTestBehavior.opaque,
-                            onTap: () {
-                              authModule.registerWithEmailAndPasswordPresses();
-                            },
-                            child: _AuthButton(
-                              title: AppLocalizations.of(context)!.signup,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    AnimatedPositioned(
-                      duration: const Duration(milliseconds: 250),
-                      left: authModule.buttonIndex == 0
-                          ? 0
-                          : MediaQuery.of(context).size.width / 2 - 70,
-                      child: GestureDetector(
-                        onTap: authModule.buttonIndex == 0
-                            ? authModule.signInWithEmailAndPasswordPresses
-                            : authModule.registerWithEmailAndPasswordPresses,
-                        child: Container(
-                            height: 60,
-                            width: MediaQuery.of(context).size.width / 2,
-                            decoration: BoxDecoration(
-                                color: AppColors.orangeRed,
-                                borderRadius: BorderRadius.circular(100)),
-                            child: _AuthButton(
-                              title: authModule.buttonIndex == 0
-                                  ? AppLocalizations.of(context)!.login
-                                  : AppLocalizations.of(context)!.signup,
-                            )),
-                      ),
-                    ),
-                  ],
-                ),
-                if (authModule.isSubmitting) ...[
-                  const SizedBox(height: 8),
-                  const LinearProgressIndicator(
-                    color: AppColors.orangeRed,
-                    backgroundColor: AppColors.blueGrey,
-                    minHeight: 5,
-                  ),
-                ],
-                const SizedBox(height: 30),
-                TextButton(
-                  onPressed: null,
-                  child: Text(
-                    AppLocalizations.of(context)!.forgotPassword,
+      name: 'Sign-in-form',
+      builder: (context) {
+        final bool loginMode = authModule.buttonIndex == 0;
+        return Form(
+          autovalidateMode: authModule.autovalidate
+              ? AutovalidateMode.onUserInteraction
+              : AutovalidateMode.disabled,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 35, right: 35, top: 40),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextFormField(
                     style: Theme.of(context)
                         .primaryTextTheme
-                        .bodyText1
-                        ?.copyWith(
-                            color: AppColors.orangeRed,
-                            fontWeight: AppFontWeight.bold),
+                        .bodyText2
+                        ?.copyWith(color: AppColors.akaroa),
+                    decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.email,
+                            color: authModule.emailFieldHasFocus
+                                ? AppColors.orangeRed
+                                : AppColors.orangeRedMuted),
+                        hintText: AppLocalizations.of(context)!.email),
+                    autocorrect: false,
+                    onTap: authModule.emailFieldPresses,
+                    onChanged: (value) =>
+                        authModule.emailChanged(emailStr: value),
+                    validator: (_) => authModule.emailAddress?.value.fold(
+                      (f) => f.maybeMap(
+                          invalidEmail: (_) =>
+                              AppLocalizations.of(context)!.invalidEmail,
+                          orElse: () {}),
+                      (r) => null,
+                    ),
                   ),
-                ),
-              ],
+                  const SizedBox(height: 20),
+                  TextFormField(
+                    style: Theme.of(context)
+                        .primaryTextTheme
+                        .bodyText2
+                        ?.copyWith(color: AppColors.akaroa),
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.lock,
+                          color: authModule.passwordFieldHasFocus
+                              ? AppColors.orangeRed
+                              : AppColors.orangeRedMuted),
+                      hintText: AppLocalizations.of(context)!.password,
+                    ),
+                    autocorrect: false,
+                    obscureText: true,
+                    onTap: authModule.passwordFieldPresses,
+                    onChanged: (value) =>
+                        authModule.passwordChanged(passwordStr: value),
+                    validator: (_) => authModule.password?.value.fold(
+                      (f) => f.maybeMap(
+                          shortPassword: (_) =>
+                              AppLocalizations.of(context)!.shortPassword,
+                          orElse: () {}),
+                      (r) => null,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Stack(
+                    children: [
+                      Container(
+                        height: 60,
+                        decoration: BoxDecoration(
+                            color: AppColors.blueGrey,
+                            borderRadius: BorderRadius.circular(100)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Expanded(
+                              child: GestureDetector(
+                                  behavior: HitTestBehavior.opaque,
+                                  onTap: () {
+                                    authModule
+                                        .signInWithEmailAndPasswordPresses();
+                                  },
+                                  child: _AuthButton(
+                                    opacity: !loginMode ? 0.5 : 1,
+                                    title: AppLocalizations.of(context)!.login,
+                                  )),
+                            ),
+                            Expanded(
+                              child: GestureDetector(
+                                behavior: HitTestBehavior.opaque,
+                                onTap: () {
+                                  authModule
+                                      .registerWithEmailAndPasswordPresses();
+                                },
+                                child: _AuthButton(
+                                  opacity: loginMode ? 0.5 : 1,
+                                  title: AppLocalizations.of(context)!.signup,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      AnimatedPositioned(
+                        duration: const Duration(milliseconds: 250),
+                        left: loginMode
+                            ? 0
+                            : MediaQuery.of(context).size.width / 2 - 70,
+                        child: GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: loginMode
+                              ? authModule.signInWithEmailAndPasswordPresses
+                              : authModule.registerWithEmailAndPasswordPresses,
+                          child: Container(
+                              height: 60,
+                              width: MediaQuery.of(context).size.width / 2,
+                              decoration: BoxDecoration(
+                                  color: AppColors.orangeRed,
+                                  borderRadius: BorderRadius.circular(100)),
+                              child: _AuthButton(
+                                title: loginMode
+                                    ? AppLocalizations.of(context)!.login
+                                    : AppLocalizations.of(context)!.signup,
+                              )),
+                        ),
+                      ),
+                    ],
+                  ),
+                  if (authModule.isSubmitting) ...[
+                    const SizedBox(height: 8),
+                    const LinearProgressIndicator(
+                      color: AppColors.orangeRed,
+                      backgroundColor: AppColors.blueGrey,
+                      minHeight: 5,
+                    ),
+                  ],
+                  const SizedBox(height: 30),
+                  TextButton(
+                    onPressed: null,
+                    child: Text(
+                      AppLocalizations.of(context)!.forgotPassword,
+                      style: Theme.of(context)
+                          .primaryTextTheme
+                          .bodyText1
+                          ?.copyWith(
+                              color: AppColors.orangeRed,
+                              fontWeight: AppFontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
 
 class _AuthButton extends StatelessWidget {
   final String title;
+  final double opacity;
   const _AuthButton({
     Key? key,
     required this.title,
+    this.opacity = 1,
   }) : super(key: key);
 
   @override
@@ -173,10 +188,10 @@ class _AuthButton extends StatelessWidget {
     return Align(
       child: Text(
         title,
-        style: Theme.of(context)
-            .primaryTextTheme
-            .bodyText1
-            ?.copyWith(color: AppColors.white, fontWeight: AppFontWeight.bold),
+        style: Theme.of(context).primaryTextTheme.bodyText1?.copyWith(
+              color: AppColors.white.withOpacity(opacity),
+              fontWeight: AppFontWeight.bold,
+            ),
       ),
     );
   }

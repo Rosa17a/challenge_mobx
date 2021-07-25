@@ -7,22 +7,22 @@ import 'font_weight.dart';
 ///  Text Style Definitions
 class AppTextStyle {
   static const _baseTextStyle = TextStyle(
-      fontFamily: AppFontFamily.lora,
+      fontFamily: AppFontFamily.roboto,
       color: AppColors.blackB,
       fontStyle: FontStyle.normal);
 
   static const _titleTextStyleItalic = TextStyle(
-      fontFamily: AppFontFamily.lora,
+      fontFamily: AppFontFamily.roboto,
       color: AppColors.blackB,
       fontStyle: FontStyle.italic);
 
   static const _titleTextStyleBold = TextStyle(
-    fontFamily: AppFontFamily.lora,
+    fontFamily: AppFontFamily.roboto,
     color: AppColors.blackB,
   );
 
   static const _titleTextStyleLora = TextStyle(
-    fontFamily: AppFontFamily.lora,
+    fontFamily: AppFontFamily.roboto,
     color: AppColors.blackB,
   );
 
