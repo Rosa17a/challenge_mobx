@@ -8,6 +8,7 @@ import '../../domain/core/i_localization_repository.dart';
 part 'locale_store.g.dart';
 
 @injectable
+@lazySingleton
 class LocaleStore = LocaleStoreBase with _$LocaleStore;
 
 abstract class LocaleStoreBase with Store {

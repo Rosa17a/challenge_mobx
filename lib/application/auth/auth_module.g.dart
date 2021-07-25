@@ -39,6 +39,54 @@ mixin _$AuthModule on AuthModuleBase, Store {
     });
   }
 
+  final _$buttonIndexAtom = Atom(name: 'AuthModuleBase.buttonIndex');
+
+  @override
+  int get buttonIndex {
+    _$buttonIndexAtom.reportRead();
+    return super.buttonIndex;
+  }
+
+  @override
+  set buttonIndex(int value) {
+    _$buttonIndexAtom.reportWrite(value, super.buttonIndex, () {
+      super.buttonIndex = value;
+    });
+  }
+
+  final _$passwordFieldHasFocusAtom =
+      Atom(name: 'AuthModuleBase.passwordFieldHasFocus');
+
+  @override
+  bool get passwordFieldHasFocus {
+    _$passwordFieldHasFocusAtom.reportRead();
+    return super.passwordFieldHasFocus;
+  }
+
+  @override
+  set passwordFieldHasFocus(bool value) {
+    _$passwordFieldHasFocusAtom.reportWrite(value, super.passwordFieldHasFocus,
+        () {
+      super.passwordFieldHasFocus = value;
+    });
+  }
+
+  final _$emailFieldHasFocusAtom =
+      Atom(name: 'AuthModuleBase.emailFieldHasFocus');
+
+  @override
+  bool get emailFieldHasFocus {
+    _$emailFieldHasFocusAtom.reportRead();
+    return super.emailFieldHasFocus;
+  }
+
+  @override
+  set emailFieldHasFocus(bool value) {
+    _$emailFieldHasFocusAtom.reportWrite(value, super.emailFieldHasFocus, () {
+      super.emailFieldHasFocus = value;
+    });
+  }
+
   final _$emailAddressAtom = Atom(name: 'AuthModuleBase.emailAddress');
 
   @override
@@ -183,10 +231,35 @@ mixin _$AuthModule on AuthModuleBase, Store {
   }
 
   @override
+  void passwordFieldPresses() {
+    final _$actionInfo = _$AuthModuleBaseActionController.startAction(
+        name: 'AuthModuleBase.passwordFieldPresses');
+    try {
+      return super.passwordFieldPresses();
+    } finally {
+      _$AuthModuleBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void emailFieldPresses() {
+    final _$actionInfo = _$AuthModuleBaseActionController.startAction(
+        name: 'AuthModuleBase.emailFieldPresses');
+    try {
+      return super.emailFieldPresses();
+    } finally {
+      _$AuthModuleBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 autovalidate: ${autovalidate},
 isSubmitting: ${isSubmitting},
+buttonIndex: ${buttonIndex},
+passwordFieldHasFocus: ${passwordFieldHasFocus},
+emailFieldHasFocus: ${emailFieldHasFocus},
 emailAddress: ${emailAddress},
 password: ${password},
 authState: ${authState},

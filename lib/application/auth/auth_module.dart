@@ -22,7 +22,12 @@ abstract class AuthModuleBase with Store {
 
   @observable
   bool isSubmitting = false;
-
+  @observable
+  int buttonIndex = 0;
+  @observable
+  bool passwordFieldHasFocus = false;
+  @observable
+  bool emailFieldHasFocus = false;
   @observable
   EmailAddress? emailAddress;
   @observable
@@ -44,7 +49,20 @@ abstract class AuthModuleBase with Store {
   }
 
   @action
+  void passwordFieldPresses() {
+    passwordFieldHasFocus = true;
+    emailFieldHasFocus = false;
+  }
+
+  @action
+  void emailFieldPresses() {
+    passwordFieldHasFocus = false;
+    emailFieldHasFocus = true;
+  }
+
+  @action
   Future<void> registerWithEmailAndPasswordPresses() async {
+    buttonIndex = 1;
     isSubmitting = true;
 
     final authFailureOrSuccess =
@@ -57,6 +75,7 @@ abstract class AuthModuleBase with Store {
 
   @action
   Future<void> signInWithEmailAndPasswordPresses() async {
+    buttonIndex = 0;
     isSubmitting = true;
     final authFailureOrSuccess =
         await _perfomActionOnAuthFacadeWithEmailAndPassword(
