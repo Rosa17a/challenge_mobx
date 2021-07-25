@@ -76,5 +76,23 @@
         "description": "welcome",
         "type": "text",
         "placeholders": {}
+    },
+    "developedBy": "Developed by Roza Shakhbazyan.",
+    "@developedBy": {
+        "description": "developedBy",
+        "type": "text",
+        "placeholders": {}
+    },
+    "findTheSourceCode": "Find the source code ",
+    "@findTheSourceCode": {
+        "description": "findTheSourceCode",
+        "type": "text",
+        "placeholders": {}
+    },
+    "here": "here.",
+    "@here": {
+        "description": "here",
+        "type": "text",
+        "placeholders": {}
     }
 }

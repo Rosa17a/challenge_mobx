@@ -10,6 +10,7 @@ class DefaultTheme {
   /// Standard `ThemeData` for  UI.
   static ThemeData get standard {
     return ThemeData(
+      brightness: Brightness.dark,
       scrollbarTheme: ScrollbarThemeData(
         thumbColor: MaterialStateProperty.all(AppColors.orangeRed),
       ),

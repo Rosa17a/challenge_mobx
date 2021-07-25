@@ -44,7 +44,6 @@ class SigninPage extends StatelessWidget {
               },
               (_) {
                 context.router.replace(const HomePageRoute());
-                authModule.cacheUserData();
               },
             ),
           );

@@ -24,7 +24,6 @@ class AppWidget extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: DefaultTheme.standard,
             locale: value.locale,
-
             // Localizations delegates.
             localizationsDelegates: AppLocalizations.localizationsDelegates,
 

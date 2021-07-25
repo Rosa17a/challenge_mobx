@@ -76,5 +76,23 @@
         "description": "welcome",
         "type": "text",
         "placeholders": {}
+    },
+    "developedBy": "Ստեղծվել է Ռոզա Շախբազյանի կողմից։",
+    "@developedBy": {
+        "description": "developedBy",
+        "type": "text",
+        "placeholders": {}
+    },
+    "findTheSourceCode": "Գտիր կոդը ",
+    "@findTheSourceCode": {
+        "description": "findTheSourceCode",
+        "type": "text",
+        "placeholders": {}
+    },
+    "here": "այստեղ:",
+    "@here": {
+        "description": "here",
+        "type": "text",
+        "placeholders": {}
     }
 }
