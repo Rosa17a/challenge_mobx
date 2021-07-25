@@ -1,14 +1,13 @@
 import 'dart:ui';
 
-import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../domain/core/i_localization_repository.dart';
 
 part 'locale_store.g.dart';
 
-@injectable
-@lazySingleton
+// @injectable
+// @singleton
 class LocaleStore = LocaleStoreBase with _$LocaleStore;
 
 abstract class LocaleStoreBase with Store {
