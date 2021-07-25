@@ -11,12 +11,12 @@ Selected language is stored in shared preferences.
 
 
 ## Getting Started
-
+```
 For running and debugging
     flutter pub get
     flutter pub run build_runner build --delete-conflicting-outputs
     flutter run
-
+```
 ### Visuals
 
 > App Video recording:
