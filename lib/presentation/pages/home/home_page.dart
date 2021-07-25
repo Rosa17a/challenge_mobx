@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:challenge/application/auth/auth_module.dart';
-import 'package:challenge/presentation/core/colors.dart';
-import 'package:challenge/presentation/routes/router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+import '../../../application/auth/auth_module.dart';
 import '../../../injection.dart';
+import '../../core/colors.dart';
+import '../../routes/router.gr.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
     final authModule = getIt<AuthModule>();
     return Observer(builder: (BuildContext context) {
       return Scaffold(
-        body: Container(
+        body: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Image.asset(
               'assets/images/home_background.png',
@@ -23,7 +24,7 @@ class HomePage extends StatelessWidget {
             )),
         appBar: AppBar(
           title: Text(
-            'welcome',
+            AppLocalizations.of(context)!.welcome,
             style: Theme.of(context)
                 .primaryTextTheme
                 .headline5
