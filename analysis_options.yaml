@@ -9,3 +9,5 @@ linter:
     sort_pub_dependencies: false
     constant_identifier_names: false
     implementation_imports: false
+    # Removing this annoying experimental rule
+    cast_nullable_to_non_nullable: false
