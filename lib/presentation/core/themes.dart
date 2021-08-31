@@ -10,18 +10,19 @@ class DefaultTheme {
   /// Standard `ThemeData` for  UI.
   static ThemeData get standard {
     return ThemeData(
-      brightness: Brightness.dark,
+      brightness: Brightness.light,
       scrollbarTheme: ScrollbarThemeData(
         thumbColor: MaterialStateProperty.all(AppColors.orangeRed),
       ),
-      highlightColor: AppColors.akaroa,
       accentColor: AppColors.orangeRedMuted,
       primaryColor: AppColors.orangeRed,
+      dialogBackgroundColor: AppColors.white,
+      highlightColor: AppColors.akaroa,
+      scaffoldBackgroundColor: AppColors.blueDeep,
       appBarTheme: _appBarTheme,
       elevatedButtonTheme: _elevatedButtonTheme,
       outlinedButtonTheme: _outlinedButtonTheme,
       textTheme: _textTheme,
-      dialogBackgroundColor: AppColors.white,
       dialogTheme: _dialogTheme,
       tooltipTheme: _tooltipTheme,
       bottomSheetTheme: _bottomSheetTheme,
@@ -33,6 +34,36 @@ class DefaultTheme {
       accentIconTheme: _iconTeheme,
       textSelectionTheme:
           const TextSelectionThemeData(cursorColor: AppColors.akaroa),
+    );
+  }
+
+  /// Standard `ThemeData` for  UI.
+  static ThemeData get standardDark {
+    return ThemeData(
+      brightness: Brightness.dark,
+      accentColor: AppColors.orangeRedMuted,
+      primaryColor: AppColors.orangeRed,
+      dialogBackgroundColor: AppColors.white,
+      highlightColor: AppColors.akaroa,
+      scaffoldBackgroundColor: AppColors.white,
+      appBarTheme: _appBarTheme,
+      elevatedButtonTheme: _elevatedButtonTheme,
+      outlinedButtonTheme: _outlinedButtonTheme,
+      textTheme: _textTheme,
+      dialogTheme: _dialogTheme,
+      tooltipTheme: _tooltipTheme,
+      bottomSheetTheme: _bottomSheetTheme,
+      tabBarTheme: _tabBarTheme,
+      dividerTheme: _dividerTheme,
+      inputDecorationTheme: _inputDecorationTheme,
+      iconTheme: _iconTeheme,
+      primaryIconTheme: _iconTeheme,
+      accentIconTheme: _iconTeheme,
+      textSelectionTheme:
+          const TextSelectionThemeData(cursorColor: AppColors.akaroa),
+      scrollbarTheme: ScrollbarThemeData(
+        thumbColor: MaterialStateProperty.all(AppColors.orangeRed),
+      ),
     );
   }
 

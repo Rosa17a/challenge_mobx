@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 abstract class ILRepository {
-  String? getLocalKey();
-  Future<void> setLocalKey(Locale locale);
+  String? getLocaleKey();
+  Future<void> setLocaleKey(Locale locale);
+  String? getThemeKey();
+  Future<void> setThemeKey(ThemeData theme);
 }

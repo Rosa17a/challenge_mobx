@@ -47,14 +47,14 @@ abstract class LocaleStoreBase with Store {
       _locale = en;
     }
 
-    await _localeRepository.setLocalKey(_locale);
+    await _localeRepository.setLocaleKey(_locale);
     return _locale;
   }
 
   Future<Locale> _getLocale() async {
-    final String? localeKey = _localeRepository.getLocalKey();
+    final String? localeKey = _localeRepository.getLocaleKey();
     if (localeKey == null) {
-      await _localeRepository.setLocalKey(en);
+      await _localeRepository.setLocaleKey(en);
 
       return en;
     } else {

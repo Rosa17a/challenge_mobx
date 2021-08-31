@@ -29,6 +29,8 @@ class SplashPage extends StatelessWidget {
           default:
             context.router.replace(const SigninPageRoute());
         }
+        StackRouter hhh;
+        print(context.router);
       },
       child: const Scaffold(
         backgroundColor: AppColors.blueDeep,

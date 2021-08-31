@@ -1,11 +1,12 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:challenge/application/core/theme_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/localizations.dart';
+import 'package:provider/provider.dart';
 
 import '../../../application/auth/auth_module.dart';
 import '../../../injection.dart';
-import '../../core/colors.dart';
 import '../../core/widgets/observable_listener.dart';
 import '../../routes/router.gr.dart';
 import 'sign_in_styles.dart';
@@ -16,9 +17,8 @@ class SigninPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authModule = getIt<AuthModule>();
-
+    final themeStore = Provider.of<ThemeStore>(context);
     return Scaffold(
-      backgroundColor: AppColors.blueDeep,
       appBar: PreferredSize(
         preferredSize: SignInStyles().appBarSize,
         child: SignInAppBar(),
@@ -54,6 +54,14 @@ class SigninPage extends StatelessWidget {
             Flexible(
               flex: 2,
               child: SignInForm(authModule: authModule),
+            ),
+            IconButton(
+              onPressed: () {
+                themeStore.toggleTheme();
+              },
+              icon: Icon(
+                themeStore.isDark ? Icons.dark_mode : Icons.light_mode,
+              ),
             ),
             const Spacer()
           ],

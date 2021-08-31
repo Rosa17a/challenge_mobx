@@ -40,8 +40,8 @@ class SignInForm extends StatelessWidget {
                     decoration: InputDecoration(
                         prefixIcon: Icon(Icons.email,
                             color: authModule.emailFieldHasFocus
-                                ? AppColors.orangeRed
-                                : AppColors.orangeRedMuted),
+                                ? Theme.of(context).primaryColor
+                                : Theme.of(context).accentColor),
                         hintText: AppLocalizations.of(context)!.email),
                     autocorrect: false,
                     onTap: authModule.emailFieldPresses,
@@ -64,8 +64,8 @@ class SignInForm extends StatelessWidget {
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.lock,
                           color: authModule.passwordFieldHasFocus
-                              ? AppColors.orangeRed
-                              : AppColors.orangeRedMuted),
+                              ? Theme.of(context).primaryColor
+                              : Theme.of(context).accentColor),
                       hintText: AppLocalizations.of(context)!.password,
                     ),
                     autocorrect: false,
@@ -163,7 +163,7 @@ class SignInForm extends StatelessWidget {
                           .primaryTextTheme
                           .bodyText1
                           ?.copyWith(
-                              color: AppColors.orangeRedMuted,
+                              color: Theme.of(context).accentColor,
                               fontWeight: AppFontWeight.bold),
                     ),
                   ),
